@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en"  ng-app>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="CSS/Main.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito|Quicksand" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+
+
+
+
+
+
+  <title>Stress</title>
+</head>
+
+<body>
+
+  <div class="jumbotron">
+    <div id="jumbo">
+      <h1>STRESS</h1>
+      <p>The web app that stresses you out so you can get shit done</p>
+    </div>
+  </div>
+  <div class="col-md-3" id="weekly">
+    <div class="container_fluid headings">
+      <h2>This Week</h2>
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="days">
+            <a data-toggle="collapse" href="#collapse5">
+              <div class="panel-heading">
+                <h4 class="panel-title">insert day</h4>
+              </div>
+            </a>
+            <div id="collapse5" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item">One<span class="badge">#<span></li>
+                <li class="list-group-item">Two</li>
+                <li class="list-group-item">Three</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6" id="tasks">
+    <div class="container_fluid headings">
+      <h2>Today</h2>
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="priority" id="pastdue">
+            <a data-toggle="collapse" href="#collapse1">
+            <div class="panel-heading">
+              <h4 class="panel-title">Past Due</h4>
+            </div>
+            </a>
+            <div id="collapse1" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item" onclick="crossout">One</li>
+                <li class="list-group-item">Two</li>
+                <li class="list-group-item">Three</li>
+              </ul>
+            </div>
+          </div>
+          <div class="priority" id="high">
+            <a data-toggle="collapse" href="#collapse2">
+            <div class="panel-heading">
+              <h4 class="panel-title">High Priority</h4>
+            </div>
+            </a>
+            <div id="collapse2" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item">One</li>
+                <li class="list-group-item">Two</li>
+                <li class="list-group-item">Three</li>
+                <li ng-repeat="x in getPriority(1)"><span>{{x}}</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="priority" id="med">
+            <a data-toggle="collapse" href="#collapse3">
+            <div class="panel-heading">
+              <h4 class="panel-title">Medium Priority</h4>
+            </div>
+          </a>
+            <div id="collapse3" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item">One</li>
+                <li class="list-group-item">Two</li>
+                <li class="list-group-item">Three</li>
+              </ul>
+            </div>
+          </div>
+          <div class="priority" id="low">
+            <a data-toggle="collapse" href="#collapse4">
+            <div class="panel-heading">
+              <h4 class="panel-title">Low Priority</h4>
+            </div>
+          </a>
+            <div id="collapse4" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item">One</li>
+                <li class="list-group-item">Two</li>
+                <li class="list-group-item">Three</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3" id="stats">
+    <div class="container_fluid headings">
+      <h2>Statisitcs</h2>
+      <div id="stats_inside">
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Lost</th>
+              <th>Saved</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Today</td>
+              <td>$$$</td>
+              <td>$$$</td>
+              <tr>
+                <td>Lifetime</td>
+                <td>$$$</td>
+                <td>$$$</td>
+              </tr>
+            </tr>
+          </tbody>
+      </div>
+    </div>
+  </div>
+  <div class="add" >
+    <div id="addbox"><h5>New Task</h5>
+      <div class="searchBar">
+        <form>
+          <div class="hello">
+            <input name="task" data-ng-model="task" type="text" placeholder="new task..."></input>
+        </div>
+      </form>
+      </div>
+      <div class="container test">
+        <div class="form-group">
+  <label for="sel1">Priority</label>
+  <select class="form-control" id="sel1" data-ng-model="priority_value">
+    <option>High</option>
+    <option>Medium</option>
+    <option>Low</option>
+  </select>
+</div>
+</div>
+<div class="container" id="dateSelect">
+  <div class="form-group">
+  <label for="sel2">Months:</label>
+  <select class="form-control" id="sel2" data-ng-model="month_value">
+    <option>01</option>
+    <option>02</option>
+    <option>03</option>
+    <option>04</option>
+    <option>05</option>
+    <option>06</option>
+    <option>07</option>
+    <option>08</option>
+    <option>09</option>
+    <option>10</option>
+    <option>11</option>
+    <option>12</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="sel3">Days:</label>
+  <select class="form-control" id="sel3" data-ng-model="day_value">
+    <option>01</option>
+    <option>02</option>
+    <option>03</option>
+    <option>04</option>
+    <option>05</option>
+    <option>06</option>
+    <option>07</option>
+    <option>08</option>
+    <option>09</option>
+    <option>10</option>
+    <option>11</option>
+    <option>12</option>
+    <option>13</option>
+    <option>14</option>
+    <option>15</option>
+    <option>16</option>
+    <option>17</option>
+    <option>18</option>
+    <option>19</option>
+    <option>20</option>
+    <option>21</option>
+    <option>22</option>
+    <option>23</option>
+    <option>24</option>
+    <option>25</option>
+    <option>26</option>
+    <option>27</option>
+    <option>28</option>
+    <option>29</option>
+    <option>30</option>
+    <option>31</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="sel4">Years:</label>
+  <select class="form-control" id="sel4" data-ng-model="year_value">
+    <option>2018</option>
+    <option>2019</option>
+  </select>
+</div>
+</div>
+<button type="button" ng-click="addTaskRequest()">Add Task</button>
+
+
+    </div>
+  </div>
+  <div class="test"></div>
+
+
+  <script>
+    angular.module('taskService', [])
+      .controller('taskController', ['$scope', '$http', function($scope, $http) {
+        $scope.month-value =
+        $scope.results = [];
+
+        $scope.addTaskRequest = function() {
+          /* the $http service allows you to make arbitrary ajax requests.
+           * in this case you might also consider using angular-resource and setting up a
+           * User $resource. */
+           var date = $scope.day_value + "/" + $scope.month_value + "/" + $scope.year_value;
+           var paramaters = {'todo-title':$scope.task, "priority":$scope.priority_value, "date":date};
+          $http.post('http://0.0.0.0:9999/todos/add', {
+              params: paramaters;
+            },
+
+            function(response) {
+              $scope.results = response;
+            },
+            function(failure) {
+              console.log("failed :(", failure);
+            });
+        }
+
+        $scope.getPriority = function(var priority) {
+          /* the $http service allows you to make arbitrary ajax requests.
+           * in this case you might also consider using angular-resource and setting up a
+           * User $resource. */
+
+          $http.post('http://0.0.0.0:9999/todos/all' + priority, {
+              params: paramaters;
+            },
+
+            function(response) {
+              $scope.results = response;
+            },
+            function(failure) {
+              console.log("failed :(", failure);
+            });
+        }
+
+
+
+      }]);
+  </script>
+
+
+</body>
+</html>

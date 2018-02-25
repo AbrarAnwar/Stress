@@ -9,3 +9,5 @@ Abrar Anway built the backend server using Java and the Spark Java Framework, wh
 
 Terry Nicks learned JavaScript and AngularJS for the purpose of connecting the backend and frontend together through REST, but we were all unable to get the connection working in time due to our unfamiliarity with it. 
 
+[[]]
+![Alt text](Stress/StressScreenShot.PNG "Screenshot of webpage")

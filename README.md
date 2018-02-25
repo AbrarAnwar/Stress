@@ -9,6 +9,11 @@ Abrar Anway built the backend server using Java and the Spark Java Framework, wh
 
 Terry Nicks learned JavaScript and AngularJS for the purpose of connecting the backend and frontend together through REST, but we were all unable to get the connection working in time due to our unfamiliarity with it. 
 
+# What went wrong and what we learned
+
+The team's lack of familiarity with a client and server side website is the biggest hurdle we had. Abrar had never programmed for the backend before, Hannah was new with Bootstrap and all of its features, and Terry was new to programming languages outside of C++. For each of us, we took on a challenge where we learned something new and completely unfamiliar to us. Abrar learned a lot about backend development, Hannah learned about frontend web development, and this being his first hackathon, Terry got to learn Javascript and AngularJS through 8 hours of YouTube videos on the topics.
+
 ![Alt text](https://github.com/AbrarAnwar/Stress/blob/master/StressScreenShot.PNG?raw=true "Screenshot of webpage")
 
 ![Alt text](https://github.com/AbrarAnwar/Stress/blob/master/Capture.PNG?raw=true "Screenshot of webpage")
+
